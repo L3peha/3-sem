@@ -5,8 +5,6 @@ f = open(input())
 q = []
 preps = [[],[],[],[],[],[],[]]
 groups = [[],[],[],[],[],[]]
-grad_pr = [[],[],[],[],[],[],[],[]]
-grad_gr = [[],[],[],[],[],[],[],[]]
 for line in f:
     q.append([n for n in line.split(';')])
 grades = [3,4,5,6,7,8,9,10]
