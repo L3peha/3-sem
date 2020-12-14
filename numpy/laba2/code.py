@@ -7,7 +7,7 @@ for i in range(mas.size):
     if i<9:
         clear.append(mas[:i+1].mean())
     else:
-        clear.append(mas[i-9:i].mean())
+        clear.append(mas[i-9:i+1].mean())
 clear = np.array(clear)
 plt.plot(clear)
 plt.show()

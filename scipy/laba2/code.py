@@ -1,16 +1,18 @@
-import numpy as np
+from scipy import linalg
 import matplotlib.pyplot as plt
 
-f = open(input())
-N = int(f.readline())
-x = np.arange(N)
-arr = np.loadtxt(f)
-b = arr[N]
-A = arr[0:N].reshape(N,N)
-y = np.linalg.solve(A,b) #i try to solve by sympy, but it was hard to make matrix(N,N+1) from matrix0(N+1,N) where
-                         #matrix0[N+1][from 0 to N] = b (we need matrix[i][N+1]=matrix[N+1][i] to use linsolve(system,...), so i use np
+with open(f"{input()}") as f:
+    lines = f.readlines()
+#print(lines)
+lines = [list(map(float, line.strip().split())) for line in lines]
+#print(lines)
+N = int(lines[0][0])
+A = lines[1:N+1]
+b = lines[N+1]
+y = linalg.solve(A,b)
+
 fig, ax = plt.subplots()
-ax.bar(x, y)
+ax.bar(range(len(y)), y)
 ax.set(xlabel="Номер решения")
 plt.grid()
 plt.show()
